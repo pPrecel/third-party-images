@@ -10,10 +10,10 @@ COPY --from=builder /bin/registry /bin/registry
 COPY --from=builder /etc/docker/registry/config.yml /etc/docker/registry/config.yml
 COPY --from=builder /entrypoint.sh /entrypoint.sh
 
+LABEL source=git@github.com:kyma-project/kyma.git
+
 VOLUME ["/var/lib/registry"]
 EXPOSE 5000
-
-LABEL source=git@github.com:kyma-project/kyma.git
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/etc/docker/registry/config.yml"]
