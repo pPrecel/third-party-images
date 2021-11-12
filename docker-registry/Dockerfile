@@ -1,4 +1,4 @@
-FROM registry:2.7.1 as builder
+FROM registry as builder
 
 FROM alpine:3.14.2
 
