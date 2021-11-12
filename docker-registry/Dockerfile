@@ -1,4 +1,4 @@
-FROM registry as builder
+FROM registry@sha256:c11a277a91045f91866550314a988f937366bc2743859aa0f6ec8ef57b0458ce as builder
 
 FROM alpine:3.14.2
 
