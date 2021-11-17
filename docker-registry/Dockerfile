@@ -9,7 +9,7 @@ ARG GOARCH=amd64
 ARG GOARM=6
 
 RUN set -ex \
-    && apk --no-cache upgrade \
+    && apk upgrade --no-cache \
     && apk add --no-cache make git file
 
 WORKDIR $DISTRIBUTION_DIR
@@ -20,7 +20,7 @@ RUN CGO_ENABLED=0 make PREFIX=/go clean binaries && file ./bin/registry | grep "
 FROM alpine:3.14.2
 
 RUN set -ex \
-    && apk --no-cache upgrade \
+    && apk upgrade --no-cache \
     && apk add --no-cache ca-certificates apache2-utils
 
 COPY --from=build /go/src/github.com/docker/distribution/cmd/registry/config-dev.yml /etc/docker/registry/config.yml
