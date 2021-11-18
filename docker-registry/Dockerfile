@@ -21,7 +21,7 @@ FROM alpine:3.14.2
 
 RUN set -ex \
     && apk upgrade --no-cache \
-    && apk add --no-cache ca-certificates apache2-utils
+    && apk add --no-cache ca-certificates
 
 COPY --from=build /go/src/github.com/docker/distribution/cmd/registry/config-dev.yml /etc/docker/registry/config.yml
 COPY --from=build /go/src/github.com/docker/distribution/bin/registry /bin/registry
