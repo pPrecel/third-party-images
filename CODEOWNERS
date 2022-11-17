@@ -21,7 +21,6 @@
 /kiali @skhalash @a-thaler @chrkl @dennis-ge @lindnerby @rakesh-garimella @hisarbalik
 /kiwigrid-sidecar @chrkl @dennis-ge @lindnerby @rakesh-garimella @skhalash @a-thaler @hisarbalik
 /loki @skhalash @a-thaler @chrkl @dennis-ge @lindnerby @rakesh-garimella @hisarbalik
-/minio @cortey @dbadura @m00g3n @moelsayed @pprecel
 /oauth2-proxy @a-thaler @chrkl @dennis-ge @lindnerby @rakesh-garimella @skhalash @hisarbalik
 /prometheus-node-exporter @a-thaler @chrkl @dennis-ge @lindnerby @rakesh-garimella @skhalash @hisarbalik
 /kube-state-metrics @a-thaler @chrkl @dennis-ge @lindnerby @rakesh-garimella @skhalash @hisarbalik
