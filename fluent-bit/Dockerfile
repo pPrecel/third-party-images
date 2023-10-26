@@ -1,5 +1,4 @@
 ARG FLB_VERSION
-ARG GOLANG_VERSION
 
 FROM fluent/fluent-bit:${FLB_VERSION} as fluentbit
 
@@ -63,22 +62,10 @@ RUN cmake -DFLB_SOURCE=/tmp/fluent-bit \
           -DPLUGIN_NAME=out_sequentialhttp  ../
 RUN make -j $(getconf _NPROCESSORS_ONLN)
 
-
-# build loki plugin
-FROM golang:${GOLANG_VERSION} as loki-builder
-
-COPY plugins /plugins
-RUN mkdir -p /plugins/build/
-WORKDIR /plugins/out_grafana_loki
-RUN go mod tidy
-RUN go test
-RUN go build -ldflags "-s -w" -buildmode=c-shared -o ../build/out_grafana_loki.so ./
-
 # Take upstream image and copy over our plugins
 FROM fluentbit
 
 COPY --from=plugin-builder /plugins/build/flb-out_sequentialhttp.so /fluent-bit/lib/flb-out_sequentialhttp.so
-COPY --from=loki-builder /plugins/build/out_grafana_loki.so /fluent-bit/lib/out_grafana_loki.so
 
 LABEL source=git@github.com:kyma-project/kyma.git
-CMD ["/fluent-bit/bin/fluent-bit", "-e", "/fluent-bit/lib/flb-out_sequentialhttp.so", "-e", "/fluent-bit/lib/out_grafana_loki.so", "-c", "/fluent-bit/etc/fluent-bit.conf"]
+CMD ["/fluent-bit/bin/fluent-bit", "-e", "/fluent-bit/lib/flb-out_sequentialhttp.so", "-c", "/fluent-bit/etc/fluent-bit.conf"]
