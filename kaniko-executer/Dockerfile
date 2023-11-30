@@ -15,6 +15,7 @@
 # image builder base on golang:1.21.3-alpine3.18
 FROM europe-docker.pkg.dev/kyma-project/prod/external/golang@sha256:926f7f7e1ab8509b4e91d5ec6d5916ebb45155b0c8920291ba9f361d65385806 as builder
 
+
 ARG KANIKO_VERSION
 ARG GOARCH=amd64
 WORKDIR /go/src/github.com/GoogleContainerTools/kaniko
