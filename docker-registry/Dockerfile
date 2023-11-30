@@ -1,6 +1,7 @@
 # image builder base on golang:1.21.3-alpine3.18
 FROM europe-docker.pkg.dev/kyma-project/prod/external/golang@sha256:926f7f7e1ab8509b4e91d5ec6d5916ebb45155b0c8920291ba9f361d65385806 as builder
 
+
 ENV GO111MODULE=auto
 ENV DISTRIBUTION_DIR /go/src/github.com/docker/distribution
 ENV BUILDTAGS include_oss include_gcs
