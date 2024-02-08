@@ -82,3 +82,4 @@ WORKDIR /workspace
 RUN ["docker-credential-gcr", "config", "--token-source=env"]
 
 ENTRYPOINT ["/kaniko/executor"]
+
