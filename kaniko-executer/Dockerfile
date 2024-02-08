@@ -74,7 +74,7 @@ COPY --from=0 /kaniko/.docker /kaniko/.docker
 COPY --from=0 /go/src/github.com/GoogleContainerTools/kaniko/files/nsswitch.conf /etc/nsswitch.conf
 ENV HOME /root
 ENV USER root
-ENV PATH /usr/local/bin:/kaniko
+ENV PATH ${PATH}:/usr/local/bin:/kaniko
 ENV SSL_CERT_DIR=/kaniko/ssl/certs
 ENV DOCKER_CONFIG /kaniko/.docker/
 ENV DOCKER_CREDENTIAL_GCR_CONFIG /kaniko/.config/gcloud/docker_credential_gcr_config.json
